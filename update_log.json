@@ -1,0 +1,16 @@
+[
+    {
+        "timestamp": "2025-05-31 14:44:33",
+        "domain": "adguard.lukaso.eu",
+        "ip": "85.16.80.173",
+        "success": true,
+        "error": ""
+    },
+    {
+        "timestamp": "2025-05-31 14:13:30",
+        "domain": "dyn.example.com",
+        "ip": "85.16.80.173",
+        "success": false,
+        "error": "Netzwerkfehler"
+    }
+]

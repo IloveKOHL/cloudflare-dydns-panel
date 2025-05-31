@@ -68,6 +68,8 @@ A modern, secure, and feature-rich Dynamic DNS management panel for Cloudflare. 
 2. **Set proper permissions**:
    ```bash
    chmod 755 *.php
+   sudo chown -R www-data:www-data /var/www/html
+   sudo chmod -R 755 /var/www/html
    chmod 666 config.json  # Will be created automatically
    ```
 

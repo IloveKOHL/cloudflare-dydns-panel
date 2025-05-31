@@ -12,12 +12,7 @@ BRIDGE="vmbr0"
 
 read -p "CT-ID (z.B. 100): " CTID
 read -p "Hostname für CT (z.B. ubuntu-web): " HOSTNAME
-read -p "IP-Adresse (optional, leer für DHCP): " IP
-if [ -z "$IP" ]; then
-  IP="dhcp"
-else
-  echo "Hinweis: IP wird nicht automatisch gesetzt, bitte manuell konfigurieren."
-fi
+
 
 if [ -z "$CTID" ] || [ -z "$HOSTNAME" ]; then
   echo "CT-ID und Hostname sind erforderlich."
@@ -30,7 +25,7 @@ pct create $CTID local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst \
   -hostname $HOSTNAME \
   -memory $RAM \
   -cores $CPU \
-  -net0 name=eth0,bridge=$BRIDGE,ip=$IP \
+  -net0 name=eth0,bridge=$BRIDGE,ip=dhcp \
   -rootfs local-lvm:8 \
   -features nesting=1 \
   -start 0

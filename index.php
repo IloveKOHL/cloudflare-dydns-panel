@@ -775,6 +775,7 @@ $intervalOptions = getIntervalOptions();
                                 <a href="?toggle_domain=<?= $domain['id'] ?>" class="btn btn-small btn-secondary">
                                     <?= $domain['enabled'] ? 'Disable' : 'Enable' ?>
                                 </a>
+                                <a href="edit_domain.php?id=<?= $domain['id'] ?>" class="btn btn-small btn-secondary">Edit</a>
                                 <a href="update.php?domain=<?= $domain['id'] ?>" class="btn btn-small btn-success">Update</a>
                                 <a href="?delete_domain=<?= $domain['id'] ?>" class="btn btn-small btn-danger" 
                                    onclick="return confirm('Really delete domain?')">Delete</a>

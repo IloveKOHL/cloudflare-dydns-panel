@@ -61,7 +61,7 @@ A modern, secure, and feature-rich Dynamic DNS management panel for Cloudflare. 
 
 1. **Download and extract** the files to your web directory:
    ```bash
-   git clone https://github.com/yourusername/cloudflare-dyndns-panel.git
+   git clone https://github.com/IloveKOHL/cloudflare-dyndns-panel.git
    cd cloudflare-dyndns-panel
    ```
 

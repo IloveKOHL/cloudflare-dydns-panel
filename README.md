@@ -51,13 +51,51 @@ A modern, secure, and feature-rich Dynamic DNS management panel for Cloudflare. 
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- **PHP 7.4+** with `curl` and `json` extensions
-- **Web server** (Apache, Nginx, etc.)
-- **Cloudflare account** with domains
-- **Cron access** (for automatic updates)
+### 🐳 Docker Guide
 
-### Installation
+You can run the Cloudflare DynDNS Panel easily using Docker. This is the recommended way for most users.
+
+#### 1. Build the Docker image
+
+```bash
+docker build -t cloudflare-dyndns-panel .
+```
+
+#### 2. Run the container
+
+```bash
+docker run -d \
+  --name cloudflare-dyndns-panel \
+  -p 8080:80 \
+  cloudflare-dyndns-panel
+```
+
+- The panel will be available at [http://localhost:8080](http://localhost:8080)
+- The `-v` options ensure your configuration and logs persist outside the container.
+- Adjust the port (`8080:80`) as needed.
+
+#### 3. (Optional) Set up a cron job for automatic updates
+
+You can run the auto-update script inside the container using cron. The container already starts `cron` automatically.
+
+To add a cron job, you can either:
+- Use the web panel to generate the cron command and add it to the container's crontab, or
+- Exec into the container and edit the crontab manually:
+
+```bash
+docker exec -it cloudflare-dyndns-panel bash
+crontab -e
+# Paste the cron command from the panel (e.g. */15 * * * * php /var/www/html/auto_update.php)
+```
+
+#### 4. Update and logs
+
+- All configuration and logs are stored in the mounted volumes.
+- To update the panel, pull the latest code and rebuild the image.
+
+---
+
+### Manual Installation
 
 1. **Download and extract** the files to your web directory:
    ```bash
@@ -292,4 +330,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Made with ❤️ for the self-hosting community**
 
 *Keep your dynamic DNS records updated automatically and securely!*
-```
